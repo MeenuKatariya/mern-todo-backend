@@ -18,7 +18,7 @@ const getAllTodos = async (req, res) => {
            return res.status(200).send(todos);
         }
         
-        let user = jwt.decode(token, process.env.SECRET);
+        let user = jwt.decode(token, "hgfdsvhjnh");
         console.log(user)
         const todos = await Todos.find({ user: user.id });
         res.status(200).send(todos);
@@ -31,7 +31,7 @@ const createTodo = async (req, res) => {
     try {
         const { token } = req.headers;
         // console.log(token)
-        let user = jwt.decode(token, process.env.SECRET);
+        let user = jwt.decode(token, "hgfdsvhjnh");
         // console.log(user)
         let newTodo = req.body;
         newTodo.user = user.id;
