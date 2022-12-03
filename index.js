@@ -21,7 +21,8 @@ app.use((req,res,next)=>{
 });
 
 connectDB().then(()=>{
-    app.listen(process.env.PORT, ()=>{
-        console.log(`listening on port ${process.env.PORT}`);
+    const port=8080
+    app.listen(port, ()=>{
+        console.log(`listening on port ${port}`);
 })});
 
