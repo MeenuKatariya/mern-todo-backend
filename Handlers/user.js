@@ -41,7 +41,7 @@ const userLogin = async (req, res) => {
         }
         else {
             if (user.password === password) {
-                const token = jwt.sign({ id: user._id, email: user.email, name: user.name }, process.env.SECRET);
+                const token = jwt.sign({ id: user._id, email: user.email, name: user.name },"hgfdsvhjnh" );
                 return res.status(200).send({token});
             }
             else {
@@ -59,7 +59,7 @@ const userLogin = async (req, res) => {
 const checkUserNyToken = async (req, res) => {
     try {
         const {token} = req.headers;
-        const decoded = jwt.verify(token, process.env.SECRET);
+        const decoded = jwt.verify(token, "hgfdsvhjnh");
         if(decoded){
             return res.status(200).send({token});
         }        // const user = await User.findOne({ _id: decoded._id });
